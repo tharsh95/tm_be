@@ -45,7 +45,8 @@ $ npm run start
 ```
 
 ## After running 
-```set synchronize and autoloadmodels to false and restart the server by running 
+```bash
+set synchronize and autoloadmodels to false and restart the server by running 
 $ npm run start
 ```
 
