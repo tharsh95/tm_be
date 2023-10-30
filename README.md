@@ -34,7 +34,8 @@ $ npm install
 ## Before running
 
 ```bash
-In the .env file add synchronize and autoloadmodels keys and set it to true,and create a database in your local,.and set the username,password and db_name in env.
+In the .env file add synchronize and autoloadmodels keys and set it to true,
+and create a database in your local,.and set the username,password and db_name in env.
 ```
 ## Running the app
 
