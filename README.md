@@ -51,7 +51,8 @@ $ npm run start
 ```
 
 ## Now go to databse 
-```Run this query
+```bash
+Run this query
 $ INSERT INTO `Logins` (`name`, `email`, `password`, `role`, `createdAt`, `updatedAt`)
 VALUES
 	('Xyz', 'Your Email Id', '1234', 'Manager', '2023-10-29 06:50:03', '2023-10-29 06:50:03');
