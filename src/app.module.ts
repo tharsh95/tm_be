@@ -6,7 +6,11 @@ import { Login } from './login/entities/login..entity';
 import { LoginModule } from './login/login..module';
 import { Task } from './tasks/entities/task.entity';
 import { TasksModule } from './tasks/tasks.module';
+import * as dotenv from 'dotenv';
 
+
+dotenv.config();
+console.log(process.env.synchronize,'env')
 @Module({
   imports: [
     SequelizeModule.forRoot({
@@ -15,8 +19,11 @@ import { TasksModule } from './tasks/tasks.module';
       port: 3306,
       username: 'root',
       password: '12345678',
-      database: 'task_management',
-      models: [Login,Task],
+      database: 'pm',
+      models: [Login, Task],
+      // autoLoadModels: true,
+
+      // synchronize: true,
     }),
     LoginModule,
     TasksModule,

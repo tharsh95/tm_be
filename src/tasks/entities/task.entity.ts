@@ -23,7 +23,7 @@ export class Task extends Model {
   isDeleted: boolean;
 
   @ForeignKey(() => Login)
-  loginId: Login;
+  loginId: Number;
 
   @BelongsTo(() => Login)
   login: Login;

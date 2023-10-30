@@ -31,8 +31,8 @@ export class LoginService {
         status: 'failure',
       };
     }
-    if (await bcrypt.compare(password, user.password)) {
-    // if (user.password === password) {
+    // if (await bcrypt.compare(password, user.password)) {
+    if (user.password === password) {
       const jwt = await this.jwtService.signAsync(body);
 
       return {
@@ -74,7 +74,7 @@ export class LoginService {
           name,
           email,
           role,
-          password: hashedPassword,
+          password,
         });
         const { data } = await this.list();
         return {
