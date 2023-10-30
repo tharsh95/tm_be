@@ -10,20 +10,20 @@ import * as dotenv from 'dotenv';
 
 
 dotenv.config();
-console.log(process.env.synchronize,'env')
+console.log( Boolean(process.env.autoloadmodels),'env')
 @Module({
   imports: [
     SequelizeModule.forRoot({
       dialect: 'mysql',
-      host: 'localhost',
+      host: process.env.host,
       port: 3306,
-      username: 'root',
-      password: '12345678',
-      database: 'pm',
+      username: process.env.db_username,
+      password: process.env.db_password,
+      database: process.env.database,
       models: [Login, Task],
-      // autoLoadModels: true,
+      autoLoadModels:  Boolean(process.env.autoloadmodels),
 
-      // synchronize: true,
+      synchronize: Boolean(process.env.synchronize),
     }),
     LoginModule,
     TasksModule,

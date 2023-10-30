@@ -31,43 +31,25 @@
 ```bash
 $ npm install
 ```
+## Before running
 
+```bash
+In the .env file add synchronize and autoloadmodels keys and set it to true,and create a database in your local,.and set the username,password and db_name in env.
+```
 ## Running the app
 
 ```bash
 # development
 $ npm run start
-
-# watch mode
-$ npm run start:dev
-
-# production mode
-$ npm run start:prod
 ```
 
-## Test
-
-```bash
-# unit tests
-$ npm run test
-
-# e2e tests
-$ npm run test:e2e
-
-# test coverage
-$ npm run test:cov
+## After running 
+```set synchronize and autoloadmodels to false and restart the server by running 
+$ npm run start
 ```
 
-## Support
-
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
-
-## Stay in touch
-
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](LICENSE).
+## Now go to databse 
+```Run this query
+$ INSERT INTO `Logins` (`name`, `email`, `password`, `role`, `createdAt`, `updatedAt`)
+VALUES
+	('Xyz', 'Your Email Id', '1234', 'Manager', '2023-10-29 06:50:03', '2023-10-29 06:50:03');
