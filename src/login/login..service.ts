@@ -31,8 +31,8 @@ export class LoginService {
         status: 'failure',
       };
     }
-    // if (await bcrypt.compare(password, user.password)) {
-    if (user.password === password) {
+    if (await bcrypt.compare(password, user.password)) {
+    // if (user.password === password) {
       const jwt = await this.jwtService.signAsync(body);
 
       return {
@@ -110,7 +110,7 @@ export class LoginService {
         where: {
           email: decoded.payload['email'],
         },
-        attributes: ['name', 'email', 'role'],
+        attributes: ["id",'name', 'email', 'role'],
       });
       if (!user) {
         return {
@@ -157,16 +157,25 @@ export class LoginService {
           message: 'Unauthorized',
           status: 'failure',
         };
-      }
-      else{
-
+      } else {
         return {
-            status: 'success',
-            message: 'Login Successfully',
-          };
-        }
+          status: 'success',
+          message: 'Login Successfully',
+        };
+      }
     } catch (error) {
       throw new Error('Invalid token');
     }
+  }
+  async changePwd(body: any) {
+    const { newPassword, email } = body;
+    this.loginModel.update(
+      {
+        password: newPassword,
+      },
+      {
+        where: { email },
+      },
+    );
   }
 }

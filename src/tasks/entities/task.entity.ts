@@ -1,4 +1,11 @@
-import { BelongsTo, Column, ForeignKey, HasOne, Model, Table } from 'sequelize-typescript';
+import {
+  BelongsTo,
+  Column,
+  ForeignKey,
+  HasOne,
+  Model,
+  Table,
+} from 'sequelize-typescript';
 import { Login } from 'src/login/entities/login..entity';
 @Table
 export class Task extends Model {
@@ -10,10 +17,13 @@ export class Task extends Model {
   link: string;
   @Column
   status: string;
+  @Column
+  deletedBy: string;
+  @Column
+  isDeleted: boolean;
 
   @ForeignKey(() => Login)
-  @Column
-  loginId: number;
+  loginId: Login;
 
   @BelongsTo(() => Login)
   login: Login;

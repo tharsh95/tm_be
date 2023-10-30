@@ -23,10 +23,10 @@ export class LoginController {
     const data = await this.loginService.login(body);
     res.status(200).json(data);
   }
-  @Post("verify")
-  async verify(@Body() body:any,@Res () res:Response){
-    const data=await this.loginService.verify(body)
-    res.json(data)
+  @Post('verify')
+  async verify(@Body() body: any, @Res() res: Response) {
+    const data = await this.loginService.verify(body);
+    res.json(data);
   }
 
   @Post('getuser')
@@ -46,5 +46,9 @@ export class LoginController {
   async list(@Res() res: Response) {
     const data = await this.loginService.list();
     res.json(data);
+  }
+  @Patch('changepwd')
+  async changePwd(@Body() body: any) {
+    return this.loginService.changePwd(body);
   }
 }
